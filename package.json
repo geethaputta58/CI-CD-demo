@@ -1,0 +1,20 @@
+{
+  "name": "ci-cd-demo",
+  "version": "1.0.0",
+  "description": "Testing GitHub Actions from dev branch",
+  "main": "test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/geethaputta58/CI-CD-demo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/geethaputta58/CI-CD-demo/issues"
+  },
+  "homepage": "https://github.com/geethaputta58/CI-CD-demo#readme"
+}
