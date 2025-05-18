@@ -1,20 +1,27 @@
-name: Production Deployment
+name: Deployment Pipeline
 
 on:
   push:
     branches:
-      - main
+      - dev      # triggers development stage
+      - main     # triggers production stage
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout Code
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up environment
-        run: echo "Set up your prod environment"
-
-      - name: Deploy to Production
+      - name: Deploy to Dev or Prod
         run: |
-          echo "Run your deployment script here"
+          if [ "${{ github.ref }}" == "refs/heads/dev" ]; then
+            echo "🚀 Deploying to Development Server..."
+            # Your development deployment commands here
+          elif [ "${{ github.ref }}" == "refs/heads/main" ]; then
+            echo "🚀 Deploying to Production Server..."
+            # Your production deployment commands here
+          else
+            echo "❌ Unknown branch. No deployment triggered."
+          fi
