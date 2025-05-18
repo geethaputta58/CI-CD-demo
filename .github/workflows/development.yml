@@ -1,4 +1,4 @@
-name: Development Pipeline
+name: Deployment Pipeline
 
 on:
   push:
@@ -6,19 +6,17 @@ on:
       - dev
 
 jobs:
-  build-and-test:
+  deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout Code
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-
-      - name: Install Dependencies
-        run: npm install
-
-      - name: Run Tests
-        run: npm test
+      - name: Deploy to Development Server
+        run: |
+          echo "🚀 Deploying to development server..."
+          # 🔧 Replace the line below with your actual deployment script
+          # Example:
+          # scp -r . user@your-server:/var/www/my-app
+          # ssh user@your-server "cd /var/www/my-app && pm2 restart app"
